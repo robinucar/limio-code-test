@@ -1,0 +1,163 @@
+#navbar-toggle-cbox {
+  display: none;
+}
+
+#navbar-toggle-cbox:checked ~ .collapse {
+  display: block;
+  margin: 0.5em 0;
+}
+
+.navbar {
+  background-color: #f9f9f9;
+  font-size: 1.2em;
+}
+
+.navbar.shadow {
+  box-shadow: 0 2px 3px rgba(0, 0, 0, 0.15) !important;
+}
+
+.navbar-toggler {
+  margin-bottom: 0em;
+}
+
+.navbar-default,
+.navbar-default .navbar-collapse {
+  border-color: transparent;
+}
+
+.navbar-brand {
+  flex-grow: 1;
+  height: 80px;
+  line-height: 80px;
+  padding-bottom: 0px;
+  padding-left: 0.5rem;
+  padding-top: 0px;
+}
+
+.navbar-brand img {
+  width: 7em;
+}
+
+.navbar-logo-text {
+  margin: 0.5em 0 0 0;
+}
+
+.navbar .navbar-toggler {
+  border: none;
+  display: flex;
+  justify-content: center;
+  max-height: 38px;
+  max-width: 46px;
+  padding: 0;
+  width: 30px;
+}
+
+.navbar .navbar-toggler .navbar-toggler-icon {
+  height: 80%;
+  margin: auto 0;
+  max-height: 1.5rem;
+  max-width: 1.5rem;
+  width: 80%;
+}
+
+.navbar .basket-button,
+.navbar .profile-button {
+  align-items: center;
+  display: flex;
+  max-height: 36px;
+}
+
+.navbar .basket-button.mobile,
+.navbar .profile-button.mobile {
+  display: none;
+}
+
+.navbar .basket-button > button.btn {
+  color: rgba(0, 0, 0, 0.5);
+  padding: 0.1em 0;
+  position: relative;
+}
+
+.navbar .basket-button > button.btn > svg {
+  font-size: 1.5em;
+}
+
+.navbar .basket-button .badge.basket-count.badge-danger {
+  font-size: 50%;
+  right: -5px;
+  position: absolute;
+}
+
+.navbar .nav-button {
+  background-color: transparent;
+  border: 2px solid rgba(0, 0, 0, 0.5);
+  border-radius: 50px;
+}
+
+.navbar-expand-lg .navbar-nav .nav-button .nav-link {
+  padding: 0.25rem 0.75rem;
+}
+
+.navbar .profile-button > button.btn {
+  background-color: transparent;
+  border: 0;
+  color: rgba(0, 0, 0, 0.5);
+  padding: 0.1em 0;
+}
+
+.navbar .profile-button > button.btn > svg {
+  font-size: 1.75em;
+}
+
+.navbar .profile-button:not(.mobile) > button.btn:not(:last-child) {
+  margin-left: 0.5rem;
+}
+
+@media (max-width: 767px) {
+  .navbar {
+    padding: 0 1rem;
+  }
+  .navbar-brand {
+    padding-left: 0;
+  }
+}
+
+@media (min-width: 992px) {
+  .navbar-expand-lg .navbar-toggler {
+    display: none !important;
+  }
+
+  .navbar .navbar-nav {
+    align-items: center;
+  }
+
+  .navbar .nav-item {
+    margin: 0 0.25rem;
+  }
+}
+
+@media (max-width: 991px) {
+  .navbar .basket-button,
+  .navbar .profile-button {
+    margin-left: 0;
+    margin-right: 0.75rem;
+  }
+
+  .navbar .basket-button:not(.mobile),
+  .navbar .profile-button:not(.mobile) {
+    display: none;
+  }
+
+  .navbar .basket-button.mobile {
+    display: flex;
+    position: relative;
+  }
+
+  .navbar .profile-button.mobile {
+    display: block;
+  }
+
+  .navbar .basket-button.mobile .badge.basket-count.badge-danger {
+    top: -1px;
+  }
+}

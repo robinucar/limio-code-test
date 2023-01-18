@@ -2,9 +2,9 @@ import React from "react"
 
 export const Header = ({ children }) => {
   return (
-    <nav className="navbar navbar-expand-lg navbar-light bg-light">
+    <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
       <a className="navbar-brand" href="#">
-        Limio Code Test
+        Limio Code Test Sandbox
       </a>
       <button
         className="navbar-toggler"
