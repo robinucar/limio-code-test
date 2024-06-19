@@ -67,10 +67,11 @@ To run the app simply,
   * If you are familiar with Redux, you can use that to control the state
 2. Update the page so that the Basket button opens up a Basket and displays some details of the current Order:
   * Price
-  * Description
-  * Basket Total
-  * Ability to remove that item from Basket
-3. If you get time, implement something that you think that the app could do and is cool. What other things would you change.
+  * Line items with a description
+  * Basket total
+  * Ability to remove that item from Basket and total changing
+3. If you get time, implement something that you think that the app could do and is cool and what you think makes a good checkout experience.
+  * If you run out of time describe what other things would you change.
 
 ### Expectations
  * We don't want you to spend too long on this exercise, just the necessary amount of time to show your front-end and back-end skills. We expect it to take 1.5 hours if you have React experience, longer if you have no React experience. 
