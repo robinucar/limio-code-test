@@ -1,5 +1,6 @@
 // @flow
 import * as R from "ramda"
+import xss from "xss";
 import type { LimioObject, CatalogItem, Offer, OfferMetadata } from "@limio/types"
 
 export type Group = {
@@ -68,3 +69,13 @@ export function groupOffers(offers: Array<LimioObject<Offer>> = [], groupLabels:
 
     return groupedOffers
 }
+
+export function sanitizeString(string: string): string {
+    const xssOptions = {
+      whitelist: [],
+      stripIgnoreTag: true,
+      stripIgnoreTagBody: ["script"],
+    };
+  
+    return xss(string, xssOptions);
+  }
