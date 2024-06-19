@@ -5,6 +5,7 @@ import * as R from "ramda"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faChevronDown } from "@fortawesome/free-solid-svg-icons"
 import { Button, CustomInput } from "@limio/design-system"
+import { sanitizeString } from "@limio/utils/offers"
 
 type MobileDescriptionProps = {
   heading: string,
