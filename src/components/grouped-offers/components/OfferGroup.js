@@ -122,7 +122,13 @@ function OfferGroup({
         </div>
       </div>
       <div className='additional-offers-link'>
-        <a href={buttonUrl + window.location.search} onClick={handleClick}>
+        <a
+          href={buttonUrl + window.location.search}
+          onClick={handleClick}
+          className={`additional-offers-link ${
+            !groupSelected ? 'disabled' : ''
+          }`}
+        >
           {buttonText}
         </a>
       </div>
