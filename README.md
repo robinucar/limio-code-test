@@ -94,3 +94,4 @@ To run the app simply,
 - I upgraded React version and updated src/index.js according to new version.
 - Whenever I clicked subscribe button page is refreshing. This will be the result of loosing state. I fixed this bug with using useNavigate hook and e.preventDefault().
 - Refactored OfferGroup.js component. With this refactoring I separated the component to the MobileDescription,OfferButton, OfferGroup, OfferOption, OfferOptions components into their own files, while maintaining the original functionality and structure.
+- Added style for subscribe link.
