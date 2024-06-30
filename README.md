@@ -102,3 +102,4 @@ To run the app simply,
 
 - Redux setup:
   - I firstly create redux store.
+  - Wrapped my app with react-redux provider so App can connect with redux store.
