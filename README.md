@@ -95,3 +95,6 @@ To run the app simply,
 - Whenever I clicked subscribe button page is refreshing. This will be the result of loosing state. I fixed this bug with using useNavigate hook and e.preventDefault().
 - Refactored OfferGroup.js component. With this refactoring I separated the component to the MobileDescription,OfferButton, OfferGroup, OfferOption, OfferOptions components into their own files, while maintaining the original functionality and structure.
 - Added style for subscribe link.
+- Installed redux toolkit and react-redux for stage management.
+  - Redux toolkit allow me to manage state without Component Prop Drilling which means we do not need to passing data from a parent component down to deeply nested child components through props.
+  - React-redux hooks (useDispatch, useSelector) allows us to connect react components to redux store.
