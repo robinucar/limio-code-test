@@ -99,3 +99,6 @@ To run the app simply,
   - Redux toolkit allow me to manage state without Component Prop Drilling which means we do not need to passing data from a parent component down to deeply nested child components through props.
   - React-redux hooks (useDispatch, useSelector) allows us to connect react components to redux store.
 - Before set up redux I disabled the subscription link if no offer selected.
+
+- Redux setup:
+  - I firstly create redux store.
