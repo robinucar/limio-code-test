@@ -8,27 +8,27 @@ Welcome to the Limio coding interview.
 
 The Limio tech stack is always evolving as we continue to seek out the best tools for the job. Our main tech stack is:
 
-  * React, React Hooks with Redux (front-end of our main app & Limio Shop)
-  * Gatsby (Limio Shop)
-  * AWS Lambda with Serverless for our backend API
-  * Node.js for the above & our product catalog backend
-  * AWS DynamoDB for our main database
-  * Git for our product catalog storage
-  * AWS Cognito for our user management
-  * We build with Webpack
-  * React Testing Library for testing
-  * Other AWS services for serving builds/files such as S3, Cloudfront, amongst others
+- React, React Hooks with Redux (front-end of our main app & Limio Shop)
+- Gatsby (Limio Shop)
+- AWS Lambda with Serverless for our backend API
+- Node.js for the above & our product catalog backend
+- AWS DynamoDB for our main database
+- Git for our product catalog storage
+- AWS Cognito for our user management
+- We build with Webpack
+- React Testing Library for testing
+- Other AWS services for serving builds/files such as S3, Cloudfront, amongst others
 
 And we are currently working towards introducing the following:
 
- * Expanding our SDK to allow more flexibility for our customers
- * Refactoring to use React hooks across our codebase where possible
- 
+- Expanding our SDK to allow more flexibility for our customers
+- Refactoring to use React hooks across our codebase where possible
+
 We will continue to discuss & add new tech where we feel it would improve our products.
 
 ### Instructions
 
-Please answer the question below (just write the answers in the spaces provided). Once the coding examples are done, please zip up your files and send them via http://wetransfer.com (GMail blocks ZIP attachments).  
+Please answer the question below (just write the answers in the spaces provided). Once the coding examples are done, please zip up your files and send them via http://wetransfer.com (GMail blocks ZIP attachments).
 
 We can then discuss the changes that you have made.
 
@@ -48,50 +48,49 @@ Some details of the implementation:
 ### Questions
 
 Please answer the following questions:
-    
-1. The code base has put each component in a separate file and directory structure.   
-   * Why do you think that was done, what are the advantages / disadvantages?
+
+1. The code base has put each component in a separate file and directory structure.
+
+   - Why do you think that was done, what are the advantages / disadvantages?
 
 2. Thinking about a production ready app, what do you think is missing from all the examples?
 
 3. Are you familiar with Redux? If so what is the basic idea behind it and what would be a good case for using it?
 
-4. Are you familiar with useEffect React Hook? When would you use it? What are some disadvantages of its overuse? 
+4. Are you familiar with useEffect React Hook? When would you use it? What are some disadvantages of its overuse?
 
 ### Coding Challenges
 
-To run the app simply, 
+To run the app simply,
 
 1. Update the page to add a subscription to a Basket:
-  * Adding a subscription should also calculate the current total of the cart
-  * If you are familiar with Redux, you can use that to control the state
+
+- Adding a subscription should also calculate the current total of the cart
+- If you are familiar with Redux, you can use that to control the state
+
 2. Update the page so that the Basket button opens up a Basket and displays some details of the current Order:
-  * Price
-  * Line items with a description
-  * Basket total
-  * Ability to remove that item from Basket and total changing
+
+- Price
+- Line items with a description
+- Basket total
+- Ability to remove that item from Basket and total changing
+
 3. If you get time, implement something that you think that the app could do and is cool and what you think makes a good checkout experience.
-  * If you run out of time describe what other things would you change.
+
+- If you run out of time describe what other things would you change.
 
 ### Expectations
- * We don't want you to spend too long on this exercise, just the necessary amount of time to show your front-end and back-end skills. We expect it to take 1.5 hours if you have React experience, longer if you have no React experience. 
-    * If you don't answer all questions, that is fine. We prefer depth on a few questions rather than superficial answers.
- * Some testing, but not extensive. Have at least one test case, so that we know you can do it. 
-    * You'll notice the example code doesn't have much testing. It should.
- * Clean, concise code. Comments are appreciated.
- * Knowledge of up to date React features e.g. Hooks.
 
+- We don't want you to spend too long on this exercise, just the necessary amount of time to show your front-end and back-end skills. We expect it to take 1.5 hours if you have React experience, longer if you have no React experience.
+  - If you don't answer all questions, that is fine. We prefer depth on a few questions rather than superficial answers.
+- Some testing, but not extensive. Have at least one test case, so that we know you can do it.
+  - You'll notice the example code doesn't have much testing. It should.
+- Clean, concise code. Comments are appreciated.
+- Knowledge of up to date React features e.g. Hooks.
 
+### MY APPROACH
 
-
-    
-      
-    
-    
-
- 
-
-
-
-
-
+- Firstly I created .gitignore and added node_modules.
+- I upgraded React version and updated src/index.js according to new version.
+- Whenever I clicked subscribe button page is refreshing. This will be the result of loosing state. I fixed this bug with using useNavigate hook and e.preventDefault().
+- Refactored OfferGroup.js component. With this refactoring I separated the component to the MobileDescription,OfferButton, OfferGroup, OfferOption, OfferOptions components into their own files, while maintaining the original functionality and structure.

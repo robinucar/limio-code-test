@@ -8,94 +8,10 @@ import { faChevronDown } from '@fortawesome/free-solid-svg-icons';
 import { Button, CustomInput } from '@limio/design-system';
 import { sanitizeString } from '@limio/utils/offers';
 
-type MobileDescriptionProps = {
-  heading: string,
-  description: string,
-};
-
-function MobileDescription({
-  heading,
-  description,
-}: MobileDescriptionProps): React.Node {
-  const [expanded, setExpanded] = useState(false);
-
-  return (
-    <div className='offer-mobile-description'>
-      <div
-        className={`expand-description ${expanded ? 'expanded' : ''}`}
-        onClick={() => setExpanded(!expanded)}
-      >
-        <h3>{heading}</h3>
-        <FontAwesomeIcon icon={faChevronDown} />
-      </div>
-      {expanded && (
-        <div
-          className='offers-description-body'
-          dangerouslySetInnerHTML={{ __html: sanitizeString(description) }}
-        />
-      )}
-    </div>
-  );
-}
-
-function getTestId(name: string = 'default', groupId: string): string {
-  const dashName = name.replace(/\s+/g, '-').toLowerCase();
-  return `${groupId}-${dashName}-offer`;
-}
-
-type OfferGroupProps = {
-  offer: {},
-  selected: boolean,
-  onClick: () => void,
-  groupId: string,
-};
-
-function OfferOption({
-  offer,
-  selected,
-  onClick,
-  groupId,
-}: OfferGroupProps): React.Node {
-  const {
-    display_name__limio,
-    display_description__limio,
-    display_price__limio,
-    detailed_display_price__limio,
-  } = offer.data.attributes;
-
-  return (
-    <div
-      className={`offer-option ${offer.hidden ? ' hidden' : ''}`}
-      onClick={() => onClick()}
-      data-testid={getTestId(display_name__limio, groupId)}
-    >
-      {!offer.hidden && (
-        <>
-          <div className='offer-option-button'>
-            <CustomInput
-              aria-label={display_name__limio}
-              type='radio'
-              checked={selected}
-              onChange={() => onClick()}
-            />
-          </div>
-          <div className='offer-option-container'>
-            <div className='offer-option-heading'>
-              <h2>{display_name__limio}</h2>
-              {<span>{display_description__limio}</span>}
-            </div>
-            <h3 dangerouslySetInnerHTML={{ __html: display_price__limio }} />
-            <h4
-              dangerouslySetInnerHTML={{
-                __html: detailed_display_price__limio,
-              }}
-            />
-          </div>
-        </>
-      )}
-    </div>
-  );
-}
+import MobileDescription from './MobileDescription';
+import OfferDescription from './OfferDescription';
+import OfferOptions from './OfferOptions';
+import OfferButtons from './OfferButton';
 
 type Props = {
   id: string,
@@ -171,48 +87,38 @@ function OfferGroup({
         <div className='best-value-group'>{bestValueText || 'Best value'}</div>
       )}
       <div className='offers-container'>
-        <div className='offers-description'>
-          {thumbnail ? <img src={thumbnail.placeholder} /> : null}
-          <h2 className='offers-heading'>{label}</h2>
-          <div
-            className='offers-description-body'
-            dangerouslySetInnerHTML={{ __html: description }}
-          />
-        </div>
+        <OfferDescription
+          label={label}
+          description={description}
+          thumbnail={thumbnail}
+        />
         <div className='offer-selection'>
-          <div className='offer-options'>
-            {offers.map((offer, index) => (
-              <OfferOption
-                key={`${id}-offer-option-${index}`}
-                groupId={groupId}
-                offer={offer}
-                selected={selection === offer && groupSelected}
-                onClick={() => selectOffer(offer)}
-              />
-            ))}
-          </div>
+          <OfferOptions
+            id={id}
+            groupId={groupId}
+            offers={offers}
+            selection={selection}
+            groupSelected={groupSelected}
+            selectOffer={selectOffer}
+          />
           <MobileDescription
             description={description}
             heading={mobileDescriptionHeading}
           />
-          <div
-            className={`offer-buttons ${groupSelected ? 'selected-group' : ''}`}
-          >
-            <Button
-              id={`offer-group-button-${groupId}`}
-              disabled={!groupSelected}
-              onClick={() =>
-                addToBasket(
-                  selection,
-                  undefined,
-                  undefined,
-                  redirect_url + window.location.search
-                )
-              }
-            >
-              {ctaText || 'Buy now'}
-            </Button>
-          </div>
+          <OfferButtons
+            groupId={groupId}
+            groupSelected={groupSelected}
+            addToBasket={(selection) =>
+              addToBasket(
+                selection,
+                undefined,
+                undefined,
+                redirect_url + window.location.search
+              )
+            }
+            selection={selection}
+            ctaText={ctaText}
+          />
         </div>
       </div>
       <div className='additional-offers-link'>
