@@ -1,17 +1,16 @@
 // @flow
 import * as React from 'react';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import * as R from 'ramda';
 import { useNavigate } from 'react-router-dom';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faChevronDown } from '@fortawesome/free-solid-svg-icons';
-import { Button, CustomInput } from '@limio/design-system';
-import { sanitizeString } from '@limio/utils/offers';
+import { useDispatch, useSelector } from 'react-redux'; //
 
 import MobileDescription from './MobileDescription';
 import OfferDescription from './OfferDescription';
 import OfferOptions from './OfferOptions';
-import OfferButtons from './OfferButton';
+import OfferButtons from './OfferButtons';
+
+import { addItem, calculateTotal } from '../../../redux/basketSlice';
 
 type Props = {
   id: string,
@@ -22,7 +21,7 @@ type Props = {
   buttonText: string,
   buttonUrl: string,
   mobileDescriptionHeading?: string,
-  thumbnail: ?string,
+  thumbnail?: string,
   preselectFirstOfferInGroup: boolean,
   selectedGroup: Array<string>,
   setSelectedGroup: (Array<string>) => void,
@@ -43,7 +42,18 @@ function OfferGroup({
   setSelectedGroup,
 }: Props): React.Node {
   const { shop } = {
-    shop: { addToBasket: () => console.log('Add to basket!') },
+    shop: {
+      addToBasket: () => {
+        const priceStr =
+          R.path(['data', 'attributes', 'display_price__limio'], selection) ||
+          '0';
+        const price = parsePrice(priceStr);
+        const item = { ...selection, price, label }; // Ensure price is present and default to 0 if missing
+        dispatch(addItem(item)); // Dispatching addItem action
+        dispatch(calculateTotal()); // Dispatching calculateTotal action
+        console.log('Added to basket:', item); // Console log for debugging
+      },
+    },
   };
   const { addToBasket } = shop;
 
@@ -73,6 +83,17 @@ function OfferGroup({
     setSelection(offer);
   };
   const navigate = useNavigate();
+  const dispatch = useDispatch();
+  const total = useSelector((state) => state.basket.total);
+  useEffect(() => {
+    console.log('Current total:', total); // Log the current total after state update
+  }, [total]);
+
+  const parsePrice = (priceStr) => {
+    const price = parseFloat(priceStr.replace(/[^0-9.-]+/g, ''));
+    return isNaN(price) ? 0 : price;
+  };
+
   const handleClick = (e) => {
     e.preventDefault(); // Stop the default anchor tag behavior
     // Get the current query string
@@ -80,7 +101,9 @@ function OfferGroup({
     // Navigate to the new URL with the current query string
     navigate(buttonUrl + currentSearch);
     console.log('Subscribe Button Clicked');
+    addToBasket(selection);
   };
+
   return (
     <div className={`offer-group-container ${bestValue ? 'best-value' : ''}`}>
       {bestValue && (
