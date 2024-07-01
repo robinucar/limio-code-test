@@ -53,11 +53,49 @@ Please answer the following questions:
 
    - Why do you think that was done, what are the advantages / disadvantages?
 
+   Organizing components to separate files and directories is typically driven by the need for a scalable, maintainable, and collaborative codebase. While it introduces some complexity, the benefits usually more than the disadvantages, especially for medium and large projects.
+
+Advantages:
+
+Separation: Each component is isolated in its own file, This makes it easier to read, understand and maintain the code.
+Reusability: Components can be easily reused across different parts of the application or even in different projects.
+Scalability: When the application grows, it's easier to manage and scale a codebase where components are modular and isolated.
+
+Easy Debugging: With components in separate files, it's easier to find and fix bugs.
+
+Testing: Unit tests can be written for individual components without worrying about the rest of the application.
+
+Development: Multiple developers can work on different components without causing merge conflicts.
+
+Disadvantages:
+
+Understand Directory: New developers may need time to understand the directory structure.
+
+More Files to Manage: Having many small files like I did :)) can make it harder to navigate the project.
+
 2. Thinking about a production ready app, what do you think is missing from all the examples?
+
+- User Authentication: User can login with their username or email and password
+- Routing : Setting up routing to handle multiple pages within the app.
+- CI/CD integration: Continuous Integration: Automated testing and building using services like GitHub Actions or Jenkins etc...
+  Continuous Deployment: Automated deployment pipelines to staging and production environments.
+- Testing : Unit tests, integration tests, and end-to-end tests
 
 3. Are you familiar with Redux? If so what is the basic idea behind it and what would be a good case for using it?
 
+Yes I am familiar with redux and I used in this code test to manage the state.
+Without redux Whe have to pass data from a parent component down through multiple levels of nested child components via props. This calls props drilling. However with medium and large application it is difficult and complex to pass data from parents through to child components via props. To sort this problem out luckily we have redux. With redux we do not need to pass data from parents to child components. We can connect The stateful components easily to redux store for state management like I did in this coding test.
+
 4. Are you familiar with useEffect React Hook? When would you use it? What are some disadvantages of its overuse?
+
+   The useEffect hook allows us to perform side effects in our function components. For example data fetching,
+   subscriptions, manually changing the DOM, and more.
+
+Disadvantages of Overusing useEffect:
+
+    Complexity: Multiple useEffect calls in a single component can make the logic difficult to follow.
+    Performance: If not used carefully, useEffect can cause unnecessary re-renders and performance issues. For example without dependencies effects can run more than we need.
+    Debugging: Debugging components with many side effects can be difficult. Understanding the order of execution can become complicated.
 
 ### Coding Challenges
 
