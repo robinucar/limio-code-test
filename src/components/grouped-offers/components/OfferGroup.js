@@ -41,6 +41,10 @@ function OfferGroup({
   selectedGroup,
   setSelectedGroup,
 }: Props): React.Node {
+  const parsePrice = (priceStr) => {
+    const price = parseFloat(priceStr.replace(/[^0-9.-]+/g, ''));
+    return isNaN(price) ? 0 : price;
+  };
   const { shop } = {
     shop: {
       addToBasket: () => {
@@ -89,10 +93,7 @@ function OfferGroup({
     console.log('Current total:', total); // Log the current total after state update
   }, [total]);
 
-  const parsePrice = (priceStr) => {
-    const price = parseFloat(priceStr.replace(/[^0-9.-]+/g, ''));
-    return isNaN(price) ? 0 : price;
-  };
+  // convert string  price into number
 
   const handleClick = (e) => {
     e.preventDefault(); // Stop the default anchor tag behavior

@@ -1,4 +1,3 @@
-// @flow
 import React from 'react';
 
 const BasketItem = ({ item, onRemove }) => (
@@ -11,7 +10,7 @@ const BasketItem = ({ item, onRemove }) => (
       <p>{item.description}</p>
       <p>Price: ${item.price.toFixed(2)}</p>
       <p className='item-quantity'>Quantity: {item.quantity}</p>
-      <p>Total Price: ${item.totalPrice}</p>
+      <p>Total Price: ${item.totalPrice.toFixed(2)}</p>
     </div>
     <button className='remove-button' onClick={onRemove}>
       Remove

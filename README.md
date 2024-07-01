@@ -111,3 +111,14 @@ To run the app simply,
       - if Item is more than one only decrease the quantity the quantity.
 - Connected OfferGroup component to the reducer. Managed to see items data on the console.
 - Created Basket component, connected with reducer, display items and price on the browser.
+
+- Testing setup:
+
+  - I firstly installed below packages:
+    Jest:
+    React Testing Library
+    Jest DOM
+    @testing-library/jest-dom
+    @testing-library/react
+
+- Secondly I rewrite existing App.test.js to test if all components of App.js rendered.
