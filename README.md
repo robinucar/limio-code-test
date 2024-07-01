@@ -127,3 +127,15 @@ To run the app simply,
   BasketCheckoutButton.test.js
   BasketItem.test.js
   BasketTotal.test.js
+- According to Test Driven Development principles Tests need to be written first. But during to time limitation I write test after production code.
+
+### Improvements
+
+- Style definitely need to be improved
+- We should add extra functions such as filter offers on the basket.
+- DevOps part needs to be done
+  - Containerize the application using Docker.
+  - Terraform configuration
+  - GitHub Actions Workflow for CI/CD pipeline
+  - Kubernetes
+  - Deploy app to cloud such as AWS EC2
