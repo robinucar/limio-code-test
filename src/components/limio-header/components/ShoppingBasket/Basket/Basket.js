@@ -1,6 +1,6 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { calculateTotal } from '../../../../../redux/basketSlice';
+import { calculateTotal, removeItem } from '../../../../../redux/basketSlice';
 import './Basket.css';
 import { useNavigate } from 'react-router-dom';
 import BasketItem from '../BasketItem/BasketItem';
@@ -16,7 +16,10 @@ const Basket = ({ onClose }) => {
   const handleCheckout = () => {
     navigate('/checkout');
   };
-
+  const handleRemoveItem = (index) => {
+    dispatch(removeItem(index));
+    dispatch(calculateTotal());
+  };
   return (
     <div className='basket'>
       <button className='close-button' onClick={onClose}>
@@ -25,7 +28,11 @@ const Basket = ({ onClose }) => {
       <h2>Basket</h2>
       <ul>
         {basketItems.map((item, index) => (
-          <BasketItem key={index} item={item} />
+          <BasketItem
+            key={index}
+            item={item}
+            onRemove={() => handleRemoveItem(index)}
+          />
         ))}
       </ul>
       <BasketTotal total={total} />

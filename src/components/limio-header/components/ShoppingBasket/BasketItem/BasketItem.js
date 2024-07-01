@@ -13,6 +13,9 @@ const BasketItem = ({ item, onRemove }) => (
       <p className='item-quantity'>Quantity: {item.quantity}</p>
       <p>Total Price: ${item.totalPrice}</p>
     </div>
+    <button className='remove-button' onClick={onRemove}>
+      Remove
+    </button>
   </li>
 );
 

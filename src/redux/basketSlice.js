@@ -18,11 +18,17 @@ const basketSlice = createSlice({
       state.items.push(item); // add item to the items list
       state.total += item.price; //update the total price
     },
+    removeItem: (state, action) => {
+      const index = action.payload; // removed item index
+      const item = state.items[index]; // find the index from state
 
+      state.total -= item.price; // decrease removed item price from state
+      state.items.splice(index, 1); //Remove the item from the items array in the state using splice
+    },
     calculateTotal: (state) => {
       state.total = state.items.reduce((acc, item) => acc + item.price, 0); //sum up the price of all items in the state.items list
     },
   },
 });
-export const { addItem, calculateTotal } = basketSlice.actions;
+export const { addItem, removeItem, calculateTotal } = basketSlice.actions;
 export default basketSlice.reducer;

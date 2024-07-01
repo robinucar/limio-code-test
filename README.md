@@ -106,5 +106,6 @@ To run the app simply,
   - Created basketSlice which keeps my initial state, action, reducer.
     - Defined initial state as a empty list and total to 0.
     - Defined addItem and calculateTotal functions to update selected offers to update state.
+    - Defined removeItem to remove item from item list by index.
 - Connected OfferGroup component to the reducer. Managed to see items data on the console.
 - Created Basket component, connected with reducer, display items and price on the browser.
