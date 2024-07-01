@@ -18,6 +18,7 @@ const basketSlice = createSlice({
       state.items.push(item); // add item to the items list
       state.total += item.price; //update the total price
     },
+
     calculateTotal: (state) => {
       state.total = state.items.reduce((acc, item) => acc + item.price, 0); //sum up the price of all items in the state.items list
     },
