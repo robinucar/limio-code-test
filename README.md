@@ -103,3 +103,6 @@ To run the app simply,
 - Redux setup:
   - I firstly create redux store.
   - Wrapped my app with react-redux provider so App can connect with redux store.
+  - Created basketSlice which keeps my initial state, action, reducer.
+    - Defined initial state as a empty list and total to 0.
+    - Defined addItem and calculateTotal functions to update selected offers to update state.

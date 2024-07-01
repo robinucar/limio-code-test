@@ -1,6 +1,10 @@
 // src/redux/store.js
 import { configureStore } from '@reduxjs/toolkit';
-
-const store = configureStore({});
+import basketSlice from './basketSlice';
+const store = configureStore({
+  reducer: {
+    basket: basketSlice,
+  },
+});
 
 export default store;
