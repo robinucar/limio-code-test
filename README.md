@@ -122,3 +122,8 @@ To run the app simply,
     @testing-library/react
 
 - Secondly I rewrite existing App.test.js to test if all components of App.js rendered.
+- Then I tested components that I created related to Basket
+  Basket.test.js
+  BasketCheckoutButton.test.js
+  BasketItem.test.js
+  BasketTotal.test.js

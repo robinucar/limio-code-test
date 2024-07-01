@@ -129,7 +129,8 @@
     "flow-bin": "^0.178.1",
     "jest-environment-jsdom": "^29.2.1",
     "less": "^4.1.2",
-    "less-loader": "^10.2.0"
+    "less-loader": "^10.2.0",
+    "redux-mock-store": "^1.5.4"
   },
   "jest": {
     "roots": [
